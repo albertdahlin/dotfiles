@@ -1,0 +1,37 @@
+set number
+set enc=utf-8
+set ts=4
+set sw=4
+set sta
+set smartindent
+set et
+set smartcase
+set hlsearch
+set ff=unix
+set ffs=unix
+set nobk
+set nowb
+set noswf
+set list
+set listchars=eol:$,tab:->,trail:·,extends:>,precedes:<,nbsp:·
+colorscheme grb256
+set wildmode=longest,list
+set wildmenu
+set t_Co=16
+set background=dark
+
+" PHP Documentator
+source ~/.vim/plugins/php-doc.vim
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR>
+let g:pdv_cfg_Type = "mixed"
+let g:pdv_cfg_Package = ""
+let g:pdv_cfg_Version = ""
+let g:pdv_cfg_Author = "Albert Dahlin <info@albertdahlin.com>"
+let g:pdv_cfg_Copyright = "Copyright (C) 2015 Albert Dahlin"
+let g:pdv_cfg_License = "GNU GPL v3.0 <http://www.gnu.org/licenses/gpl-3.0.html>"
+
+if filereadable($HOME . "/.vim/localrc.vim")
+    source $HOME/.vim/localrc.vim
+endif
