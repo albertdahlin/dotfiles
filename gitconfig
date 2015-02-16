@@ -1,0 +1,10 @@
+[alias]
+	st    = status -s
+	cdiff = diff --cached
+	wdiff = diff --word-diff=color
+	slog  = log --pretty=format:'%C(auto)%h  %<(18,trunc)%cD   %<(20)%cn %Cgreen%s'
+[user]
+	email = info@albertdahlin.com
+	name = Albert Dahlin
+[push]
+	default = simple
