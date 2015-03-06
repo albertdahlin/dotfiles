@@ -1,5 +1,6 @@
 [alias]
-	st    = status -s
+	st    = status
+	s     = status -s
 	cdiff = diff --cached
 	wdiff = diff --word-diff=color
 	slog  = log --pretty=format:'%C(auto)%h  %<(18,trunc)%cD   %<(20)%an %Cgreen%s'
