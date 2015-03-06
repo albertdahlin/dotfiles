@@ -22,5 +22,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 /bin/sh -c "xrandr --output VGA1 --right-of DP2"
-/bin/sh -c "feh --bg-fill /home/albert/Downloads/mandelbrot_fractal_by_dusanpavlicek-d41d9vv.jpg"
+/bin/sh -c "feh --bg-fill /home/albert/.i3/bg.jpg"
 /bin/sh -c "/usr/bin/compton -b --config /home/albert/.i3/compton.conf"
