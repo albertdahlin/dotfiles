@@ -22,6 +22,7 @@ set background=dark
 
 " PHP Documentator
 source ~/.vim/plugins/php-doc.vim
+source ~/.vim/plugins/emmet.vim
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR>
@@ -35,3 +36,4 @@ let g:pdv_cfg_License = "GNU GPL v3.0 <http://www.gnu.org/licenses/gpl-3.0.html>
 if filereadable($HOME . "/.vim/localrc.vim")
     source $HOME/.vim/localrc.vim
 endif
+cabbrev E Explore
