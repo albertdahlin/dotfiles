@@ -21,6 +21,6 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-/bin/sh -c "xrandr --output VGA1 --right-of DP2"
+#/bin/sh -c "xrandr --output VGA1 --right-of DP2"
 /bin/sh -c "feh --bg-fill /home/albert/.i3/bg.jpg"
 /bin/sh -c "/usr/bin/compton -b --config /home/albert/.i3/compton.conf"
