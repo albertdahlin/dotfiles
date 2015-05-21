@@ -19,6 +19,7 @@ set wildmode=longest,list
 set wildmenu
 set t_Co=16
 set background=dark
+set lisp
 
 " PHP Documentator
 source ~/.vim/plugins/php-doc.vim
