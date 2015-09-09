@@ -9,3 +9,5 @@
 	name = Albert Dahlin
 [push]
 	default = simple
+[core]
+	editor = vim
