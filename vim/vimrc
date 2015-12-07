@@ -1,3 +1,4 @@
+syntax on
 set number
 set enc=utf-8
 set ts=4
