@@ -1,14 +1,14 @@
 [alias]
-	s     = status -s
-	st    = status
-	cdiff = diff --cached
-	wdiff = diff --word-diff=color
-	slog  = log --pretty=format:'%C(auto)%h  %<(18,trunc)%cD   %<(20)%an %Cgreen%s'
+    s     = status -s
+    st    = status
+    cdiff = diff --cached
+    wdiff = diff --word-diff=color
+    slog  = log --pretty=format:'%C(auto)%h  %<(18,trunc)%cD   %<(20)%an %Cgreen%s'
     tlog  = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 [user]
-	email = info@albertdahlin.com
-	name = Albert Dahlin
+    email = info@albertdahlin.com
+    name = Albert Dahlin
 [push]
-	default = simple
+    default = simple
 [core]
-	editor = vim
+    editor = vim
