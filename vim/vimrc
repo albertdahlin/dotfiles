@@ -39,3 +39,39 @@ if filereadable($HOME . "/.vim/localrc.vim")
     source $HOME/.vim/localrc.vim
 endif
 cabbrev E Explore
+
+function! AlignEqualsRange() range
+    let lineStart   = line("'<")
+    let lineEnd     = line("'>")
+    let equalsCol   = 0
+
+    for i in range(lineStart, lineEnd)
+        let col = stridx(getline(i), "=")
+        if col > equalsCol
+            let equalsCol = col
+        endif
+    endfor
+
+    if &tabstop > 0
+        let equalsCol += (&tabstop - (equalsCol % &tabstop)) % &tabstop
+    endif
+
+    for i in range(lineStart, lineEnd)
+        let lineString      = getline(i)
+        let col             = stridx(lineString, "=")
+        let spaces          = equalsCol - col
+        let lineStringEnd   = strpart(lineString, col)
+        let lineString      = strpart(lineString, 0, col)
+        let j               = 0
+        while j < spaces
+            let lineString .= " "
+            let j += 1
+        endwhile
+        let lineString .= lineStringEnd
+        call setline(i, lineString)
+    endfor
+endfunction
+
+vnoremap <C-Y>l :call AlignEqualsRange()<CR>
+
+autocmd FileType php set keywordprg=~/.vim/plugins/php-doc
