@@ -20,6 +20,10 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+if [ -d "/usr/local/go" ] ; then
+    PATH="/usr/local/go/bin:$PATH"
+    export GOPATH=$HOME/go
+fi
 
 #/bin/sh -c "xrandr --output VGA1 --right-of DP2"
 /bin/sh -c "feh --bg-fill /home/albert/.i3/bg.jpg"
