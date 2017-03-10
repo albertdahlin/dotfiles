@@ -5,6 +5,7 @@
     wdiff = diff --word-diff=color
     slog  = log --pretty=format:'%C(auto)%h  %<(18,trunc)%cD   %<(20)%an %Cgreen%s'
     tlog  = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    changelog = notes --ref=changelog append
 [user]
     email = info@albertdahlin.com
     name = Albert Dahlin
