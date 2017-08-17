@@ -75,3 +75,4 @@ endfunction
 vnoremap <C-Y>l :call AlignEqualsRange()<CR>
 
 autocmd FileType php set keywordprg=~/.vim/plugins/php-doc
+au BufReadPost,BufNewFile source ~/.vim/syntax/c.vim
