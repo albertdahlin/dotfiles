@@ -13,6 +13,7 @@ hi VertSplit ctermbg=black ctermfg=lightgrey
 hi LineNr ctermfg=darkgray
 hi CursorLine       guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE       ctermbg=234    cterm=NONE
 hi Function         guifg=#FFD2A7     guibg=NONE        gui=NONE      ctermfg=yellow     ctermbg=NONE   cterm=NONE
+hi Type             guifg=#FFD2A7     guibg=NONE        gui=NONE      ctermfg=brown      ctermbg=NONE   cterm=NONE
 hi Visual           guifg=NONE        guibg=#262D51     gui=NONE      ctermfg=NONE       ctermbg=236    cterm=NONE
 
 hi Error            guifg=NONE        guibg=NONE        gui=undercurl ctermfg=16         ctermbg=red    cterm=NONE     guisp=#FF6C60 " undercurl color

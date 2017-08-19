@@ -15,7 +15,7 @@ set nowb
 set noswf
 set list
 set listchars=eol:$,tab:->,trail:·,extends:>,precedes:<,nbsp:·
-colorscheme grb256
+colorscheme dhln
 set wildmode=longest,list
 set wildmenu
 set t_Co=16
