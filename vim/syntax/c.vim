@@ -9,7 +9,7 @@ syntax match Operator "\V/"
 syntax match Operator "\V|"
 syntax match Operator "\V<"
 syntax match Operator "\V>"
-syntax match Constant /[A-Z_]\{4,}/
+syntax match Constant /[A-Z_0-9]\{4,}/
 syntax match Function /\w\+\ze(/
 "match Operator "\v\/"
 " match Constant /[()\[\]]/
