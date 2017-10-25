@@ -61,7 +61,7 @@ hi def link elmImport Include
 hi def link elmConditional Conditional
 hi def link elmAlias Delimiter
 hi def link elmOperator Operator
-hi def link elmType Identifier
+hi def link elmType Type
 hi def link elmNumberType Identifier
 
 syn sync minlines=500
