@@ -21,6 +21,7 @@ set wildmenu
 set t_Co=16
 set background=dark
 set relativenumber
+set cursorline
 map <Return> i<Return><Esc>^
 
 " PHP Documentator
