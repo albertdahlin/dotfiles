@@ -1,1 +1,1 @@
-apt-get install feh compton imagemagick vim
+apt-get install feh compton imagemagick vim scrot xclip
