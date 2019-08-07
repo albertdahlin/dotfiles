@@ -30,12 +30,12 @@ source ~/.vim/plugins/emmet.vim
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR>
-let g:pdv_cfg_Type = "mixed"
-let g:pdv_cfg_Package = ""
-let g:pdv_cfg_Version = ""
-let g:pdv_cfg_Author = "Albert Dahlin <info@albertdahlin.com>"
+let g:pdv_cfg_Type      = "mixed"
+let g:pdv_cfg_Package   = ""
+let g:pdv_cfg_Version   = ""
+let g:pdv_cfg_Author    = "Albert Dahlin <info@albertdahlin.com>"
 let g:pdv_cfg_Copyright = "Copyright (C) 2016 Albert Dahlin"
-let g:pdv_cfg_License = "GNU GPL v3.0 <http://www.gnu.org/licenses/gpl-3.0.html>"
+let g:pdv_cfg_License   = "GNU GPL v3.0 <http://www.gnu.org/licenses/gpl-3.0.html>"
 
 if filereadable($HOME . "/.vim/localrc.vim")
     source $HOME/.vim/localrc.vim
@@ -74,7 +74,9 @@ function! AlignEqualsRange() range
     endfor
 endfunction
 
-vnoremap <C-Y>l :call AlignEqualsRange()<CR>
+vnoremap <Leader>l :call AlignEqualsRange()<CR>
+nnoremap <Leader>f :%!elm-format --stdin<CR>
+vnoremap <Leader>f :!elm-format --stdin<CR>
 
 autocmd FileType php set keywordprg=~/.vim/plugins/php-doc
 au BufReadPost,BufNewFile source ~/.vim/syntax/c.vim
