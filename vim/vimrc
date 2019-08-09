@@ -75,7 +75,7 @@ function! AlignEqualsRange() range
 endfunction
 
 vnoremap <Leader>l :call AlignEqualsRange()<CR>
-nnoremap <Leader>f :%!elm-format --stdin<CR>
+nnoremap <Leader>f mkHmt:%!elm-format --stdin<CR>'tzt'k
 vnoremap <Leader>f :!elm-format --stdin<CR>
 
 autocmd FileType php set keywordprg=~/.vim/plugins/php-doc
