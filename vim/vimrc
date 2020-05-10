@@ -80,6 +80,8 @@ endfunction
 vnoremap <Leader>l :call AlignEqualsRange()<CR>
 nnoremap <Leader>f mkHmt:%!elm-format --stdin<CR>'tzt'k
 vnoremap <Leader>f :!elm-format --stdin<CR>
+vnoremap <Leader>c :!ctags src -R<CR>
+nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
 
 autocmd FileType php set keywordprg=~/.vim/plugins/php-doc
 au BufReadPost,BufNewFile source ~/.vim/syntax/c.vim
