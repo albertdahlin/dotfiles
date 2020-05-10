@@ -84,4 +84,26 @@ vnoremap <Leader>c :!ctags src -R<CR>
 nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
 
 autocmd FileType php set keywordprg=~/.vim/plugins/php-doc
+
+autocmd BufNewFile *.elm :call NewElmModule()
+
+function! NewElmModule()
+    let fileName = expand('%:r')
+    let parts = reverse(split(fileName, "/"))
+    let moduleName = []
+
+    for p in parts
+        if (l:p !~ '^[A-Z]')
+            break
+        endif
+        let moduleName = add(moduleName, p)
+    endfor
+
+
+    let moduleName = join(reverse(moduleName), ".")
+    let moduleName = join(["module", moduleName, "exposing (..)"], " ")
+
+    call setline(1, moduleName)
+endfunction
+
 au BufReadPost,BufNewFile source ~/.vim/syntax/c.vim
