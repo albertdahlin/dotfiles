@@ -18,10 +18,13 @@ set listchars=eol:$,tab:->,trail:·,extends:>,precedes:<,nbsp:·
 colorscheme dhln
 set wildmode=longest,list
 set wildmenu
+set nocompatible
+filetype plugin on
 set t_Co=16
 set background=dark
 set relativenumber
 set cursorline
+set path+=**
 map <Return> i<Return><Esc>^
 
 " PHP Documentator
