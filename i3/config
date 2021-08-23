@@ -157,3 +157,5 @@ workspace 7 output VGA1
 workspace 1 output DP2
 
 bindsym $mod+Shift+z exec "~/.i3/lock.sh"
+bindsym $mod+u exec "setxkbmap us"
+bindsym $mod+Shift+u exec "setxkbmap se"
