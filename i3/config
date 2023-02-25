@@ -120,7 +120,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym --release $mod+Ctrl+Shift+4 exec "rm -f /tmp/clipboard.png; scrot -s /tmp/clipboard.png && xclip -selection c -t image/png -i /tmp/clipboard.png"
+bindsym --release $mod+Ctrl+Shift+4 exec "rm -f /tmp/clipboard.png; scrot -f -s /tmp/clipboard.png && xclip -selection c -t image/png -i /tmp/clipboard.png"
+bindsym --release $mod+Ctrl+Shift+3 exec "rm -f /tmp/clipboard.png; scrot -u -s /tmp/clipboard.png && xclip -selection c -t image/png -i /tmp/clipboard.png"
+bindsym --release $mod+Ctrl+Shift+2 exec "gpick -s -o --no-newline --no-start | xclip -selection c -t text/plain -i"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -155,6 +157,8 @@ bar {
 
 workspace 7 output VGA1
 workspace 1 output DP2
+
+default_border pixel 1
 
 bindsym $mod+Shift+z exec "~/.i3/lock.sh"
 bindsym $mod+o exec "setxkbmap us"
