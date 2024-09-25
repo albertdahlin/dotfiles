@@ -1,16 +1,11 @@
-import Browser
-import Html exposing (Html)
-import Html.Attributes as HA
-import Html.Events as Events
 
 
 main : Program Flags Model Msg
 main =
-    Browser.element
+    Platform.worker
         { init = init
         , update = update
         , subscriptions = subscriptions
-        , view = view
         }
 
 
@@ -50,10 +45,3 @@ update msg model =
         None ->
             ( model, Cmd.none )
 
-
-view : Model -> Html Msg
-view model =
-    Html.div
-        []
-        [ Html.text "hello"
-        ]

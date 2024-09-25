@@ -1,3 +1,4 @@
+set t_RV=
 syntax on
 set number
 set enc=utf-8
@@ -15,12 +16,12 @@ set nowb
 set noswf
 set list
 set listchars=eol:$,tab:->,trail:·,extends:>,precedes:<,nbsp:·
+set t_Co=16
 colorscheme dhln
 set wildmode=longest,list
 set wildmenu
 set nocompatible
 filetype plugin on
-set t_Co=16
 set background=dark
 set relativenumber
 set cursorline
