@@ -54,6 +54,23 @@ let chat_engine_config = {
 
 let g:vim_ai_complete = chat_engine_config
 let g:vim_ai_edit = chat_engine_config
+let g:vim_ai_roles_config_file = '~/.vim/roles.ini'
+
+" custom command suggesting git commit message, takes no arguments
+function! GitCommitMessageFn()
+  let l:diff = system('git --no-pager diff --staged')
+  let l:prompt = "generate a short commit message from the diff below:\n" . l:diff
+  let l:config = {
+  \  "engine": "chat",
+  \  "options": {
+  \    "model": "gpt-4o",
+  \    "initial_prompt": ">>> system\nyou are a code assistant",
+  \    "temperature": 1,
+  \  },
+  \}
+  call vim_ai#AIRun(l:config, l:prompt)
+endfunction
+command! GitCommitMessage call GitCommitMessageFn()
 
 " Copilot
 imap <C-L> <Plug>(copilot-accept-word)
