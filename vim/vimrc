@@ -115,8 +115,18 @@ function! AlignEqualsRange() range
     endfor
 endfunction
 
+
+function! PipeAndRestore(cmd)
+     " Try to execute the shell command
+    execute '%!'.a:cmd
+    if v:shell_error
+        undo
+    endif
+endfunction
+
 vnoremap <Leader>l :call AlignEqualsRange()<CR>
-nnoremap <Leader>f mkHmt:%!elm-format --stdin<CR>'tzt'k
+nnoremap <Leader>f mkHmt:call PipeAndRestore('elm-format --stdin')<CR>'tzt'k
+nnoremap <Leader>e :!clear; elm make --output /dev/null %<CR>
 vnoremap <Leader>f :!elm-format --stdin<CR>
 vnoremap <Leader>c :!ctags src -R<CR>
 nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
