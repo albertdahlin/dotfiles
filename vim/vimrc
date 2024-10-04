@@ -28,7 +28,7 @@ set cursorline
 set path+=**
 map <Return> i<Return><Esc>^
 
-"Open AI config
+"BEGIN OpenAI config
 let initial_prompt =<< trim END
 >>> system
 
@@ -72,9 +72,14 @@ function! GitCommitMessageFn()
 endfunction
 command! GitCommitMessage call GitCommitMessageFn()
 
-" Copilot
+" END OpenAI config
+
+" BEGIN Copilot
 imap <C-L> <Plug>(copilot-accept-word)
 imap <C-J> <Plug>(copilot-accept-line)
+imap <C-H> <Plug>(copilot-dismiss)
+set backspace=indent,eol,start
+" END Copilot
 
 nnoremap <leader>% :let @+=@%<CR>
 
