@@ -1,8 +1,8 @@
 #!/bin/bash
 DIR=$1
-shift 1
+echo $2
 
 while true; do
     inotifywait -qre close_write $DIR
-    $@
+    eval $2
 done
