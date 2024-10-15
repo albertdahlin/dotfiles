@@ -52,8 +52,9 @@ let chat_engine_config = {
 \  },
 \}
 
-let g:vim_ai_complete = chat_engine_config
-let g:vim_ai_edit = chat_engine_config
+let vim_ai_chat = chat_engine_config
+let vim_ai_complete = chat_engine_config
+let vim_ai_edit = chat_engine_config
 let g:vim_ai_roles_config_file = '~/.vim/roles.ini'
 
 " custom command suggesting git commit message, takes no arguments
@@ -72,6 +73,10 @@ function! GitCommitMessageFn()
 endfunction
 command! GitCommitMessage call GitCommitMessageFn()
 
+inoremap <F4> <Esc>:AIChat<CR>
+vnoremap <F4> y:AIChat<CR>p
+nnoremap <F4> :let @"=@%<CR>:AIChat<CR>i>>> include<CR><CR><Esc>pgg
+
 " END OpenAI config
 
 " BEGIN Copilot
@@ -81,7 +86,7 @@ imap <C-H> <Plug>(copilot-dismiss)
 set backspace=indent,eol,start
 " END Copilot
 
-nnoremap <leader>% :let @+=@%<CR>
+nnoremap <leader>n :let @+=@%<CR>:let @"=@%<CR>
 
 if filereadable($HOME . "/.vim/localrc.vim")
     source $HOME/.vim/localrc.vim
