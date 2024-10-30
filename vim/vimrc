@@ -8,6 +8,7 @@ set sta
 set smartindent
 set et
 set smartcase
+set ruler
 set hlsearch
 set ff=unix
 set ffs=unix
@@ -88,7 +89,7 @@ imap <C-H> <Plug>(copilot-dismiss)
 set backspace=indent,eol,start
 " END Copilot
 
-nnoremap <leader>n :let @+=@%<CR>:let @"=@%<CR>
+nnoremap <Leader>n :let @+=@%<CR>:let @"=@%<CR>
 
 if filereadable($HOME . "/.vim/localrc.vim")
     source $HOME/.vim/localrc.vim
@@ -137,13 +138,13 @@ function! PipeAndRestore(cmd)
 endfunction
 
 vnoremap <Leader>l :call AlignEqualsRange()<CR>
-nnoremap <Leader>f mkHmt:call PipeAndRestore('elm-format --stdin')<CR>'tzt'k
 nnoremap <Leader>e :w<CR> :!clear; elm make --output /dev/null %<CR>
-vnoremap <Leader>f :!elm-format --stdin<CR>
 vnoremap <Leader>c :!ctags src -R<CR>
 nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
 
 autocmd BufNewFile *.elm :call NewElmModule()
+autocmd FileType elm nnoremap <Leader>f mkHmt:call PipeAndRestore('elm-format --stdin')<CR>'tzt'k
+autocmd FileType sql nnoremap <Leader>f mkHmt:call PipeAndRestore('sqlformat - --reindent --keywords upper --use_space_around_operators --indent_columns')<CR>'tzt'k
 
 function! NewElmModule()
     let fileName = expand('%:r')
