@@ -1,0 +1,10 @@
+[chat]
+options.model=o1
+
+>>> system
+
+Only output code, no explanation. Do not add any additional text.
+
+>>> user
+
+
