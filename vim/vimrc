@@ -138,9 +138,12 @@ vnoremap <Leader>c :!ctags src -R<CR>
 nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=&filetype<CR>/
 
 autocmd BufNewFile *.elm :call NewElmModule()
+
+" Format contents of the buffer with the appropriate tool
 autocmd FileType elm nnoremap <Leader>f mkHmt:call PipeAndRestore('elm-format --stdin')<CR>'tzt'k
 autocmd FileType sql nnoremap <Leader>f mkHmt:call PipeAndRestore('sqlformat - --reindent --keywords upper --use_space_around_operators --indent_columns')<CR>'tzt'k
 autocmd FileType xml nnoremap <Leader>f mkHmt:call PipeAndRestore('XMLLINT_INDENT="    " xmllint --format -')<CR>'tzt'k
+autocmd FileType json nnoremap <Leader>f mkHmt:call PipeAndRestore('jq')<CR>'tzt'k
 
 function! NewElmModule()
     let fileName = expand('%:r')
