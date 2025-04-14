@@ -31,33 +31,27 @@ set path+=**
 nnoremap <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : "i\<CR>\<Esc>^"
 
 "BEGIN OpenAI config
-let initial_prompt =<< trim END
->>> system
 
-You are going to play a role of a completion engine with following parameters:
-Task: Provide compact code/text completion, generation, transformation or explanation
-Topic: general programming and text editing
-Style: Plain result without any commentary, unless commentary is necessary. Do not include symbols such as ``` or ```python.
-Audience: Users of text editor and programmers that need to transform/generate text
-END
-
-let chat_engine_config = {
-\  "engine": "chat",
-\  "options": {
-\    "model": "gpt-4o",
-\    "endpoint_url": "https://api.openai.com/v1/chat/completions",
-\    "max_tokens": 0,
-\    "temperature": 0.1,
-\    "request_timeout": 20,
-\    "selection_boundary": "",
-\    "initial_prompt": initial_prompt,
-\  },
-\}
-
-let vim_ai_chat = chat_engine_config
-let vim_ai_complete = chat_engine_config
-let vim_ai_edit = chat_engine_config
-let g:vim_ai_roles_config_file = '~/.vim/roles.ini'
+"let initial_prompt =<< trim END
+"END
+"
+"let chat_engine_config = {
+"\  "engine": "chat",
+"\  "options": {
+"\    "model": "gpt-4o",
+"\    "endpoint_url": "https://api.openai.com/v1/chat/completions",
+"\    "max_tokens": 0,
+"\    "temperature": 0.1,
+"\    "request_timeout": 20,
+"\    "selection_boundary": "",
+"\    "initial_prompt": initial_prompt,
+"\  },
+"\}
+"
+"let vim_ai_chat = chat_engine_config
+"let vim_ai_complete = chat_engine_config
+"let vim_ai_edit = chat_engine_config
+"let g:vim_ai_roles_config_file = '~/.vim/roles.ini'
 
 " custom command suggesting git commit message, takes no arguments
 function! GitCommitMessageFn()
@@ -77,7 +71,7 @@ command! GitCommitMessage call GitCommitMessageFn()
 
 inoremap <F4> <Esc>:AIChat<CR>
 vnoremap <F4> y:AIChat<CR>p
-nnoremap <F4> :let @"=@%<CR>:AIChat<CR>i>>> include<CR><CR><Esc>pgg
+nnoremap <F4> :let @"=@%<CR>:AIChat<CR>i>>> include<CR><CR><Esc>pgg :setf aichat<CR>
 autocmd FileType aichat nnoremap <F4> :AIChat<CR>
 
 " END OpenAI config
@@ -140,7 +134,8 @@ endfunction
 vnoremap <Leader>l :call AlignEqualsRange()<CR>
 nnoremap <Leader>e :w<CR> :!clear; elm make --output /dev/null %<CR>
 vnoremap <Leader>c :!ctags src -R<CR>
-nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
+"nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
+nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=&filetype<CR>/
 
 autocmd BufNewFile *.elm :call NewElmModule()
 autocmd FileType elm nnoremap <Leader>f mkHmt:call PipeAndRestore('elm-format --stdin')<CR>'tzt'k
