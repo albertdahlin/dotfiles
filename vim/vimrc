@@ -140,6 +140,11 @@ vnoremap <Leader>c :!ctags src -R<CR>
 "nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
 nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=&filetype<CR>/
 
+"APL (dyalog)
+nnoremap <Leader>a :%w !dyalog-stdin<CR>
+vnoremap <Leader>a :w !dyalog-stdin<CR>
+vnoremap <Leader>A :!dyalog-stdin<CR>
+
 autocmd BufNewFile *.elm :call NewElmModule()
 
 " Format contents of the buffer with the appropriate tool
