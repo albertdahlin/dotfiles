@@ -135,7 +135,8 @@ function! PipeAndRestore(cmd)
 endfunction
 
 vnoremap <Leader>l :call AlignEqualsRange()<CR>
-nnoremap <Leader>e :w<CR> :!clear; elm make --output /dev/null %<CR>
+autocmd FileType elm nnoremap <Leader>e :w<CR> :!clear; elm make --output /dev/null %<CR>
+
 vnoremap <Leader>c :!ctags src -R<CR>
 "nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=expand('%:e')<CR>/
 nnoremap <Leader>s :-1read $HOME/.vim/snippets/<C-R>=&filetype<CR>/
