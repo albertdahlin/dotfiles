@@ -1,0 +1,45 @@
+#!/bin/bash
+
+
+# Print ASCII table
+
+echo "ASCII Table"
+echo "------------"
+echo -n "    "
+for col in {0..15}; do
+    printf ".%X " "$col"
+done
+echo ""
+
+for row in {0..7}; do
+    printf "%X.  " "$row"
+    for col in {0..15}; do
+        code=$((row * 16 + col))
+        if [ $code -eq 0 ]; then
+            # Null character
+            echo -n "\0 "
+        elif [ $code -eq 9 ]; then
+            # Horizontal Tab
+            echo -n "\t "
+        elif [ $code -eq 10 ]; then
+            # Line Feed
+            echo -n "\n "
+        elif [ $code -eq 13 ]; then
+            # Carriage Return
+            echo -n "\r "
+        elif [ $code -eq 27 ]; then
+            # Escape character
+            echo -n "\e "
+        elif [ $code -lt 32 ]; then
+            # Non-printable characters
+            code=$((code + 64))
+            printf "^\\$(printf '%03o ' "$code")"
+        elif [ $code -lt 127 ]; then
+            # Print printable ASCII characters from $code
+            # Using printf to get the character representation
+            printf " \\$(printf '%03o ' "$code")"
+        fi
+    done
+    echo ""
+done
+
