@@ -165,7 +165,7 @@ bindsym $mod+i exec "setxkbmap se -option"
 bindsym $mod+o exec "setxkbmap us -option"
 bindsym $mod+p exec "setxkbmap -layout us,apl -variant ,dyalog -option grp:switch"
 
-exec /usr/bin/compton -b --config /home/albert/.i3/compton.conf
+exec /usr/local/bin/picom -b --config /home/albert/.i3/picom.conf
 exec feh --bg-fill /home/albert/.i3/bg.jpg
 exec eval $(ssh-agent -s)
 
