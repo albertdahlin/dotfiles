@@ -132,8 +132,22 @@ render() {
             elif $p >= 50 then "#ffdf5f"
             else                "#a3d18a" end;
 
+        # "2026-09-07T09:00:00.263250+00:00" -> epoch seconds (null if unparsable)
+        def reset_epoch:
+            (.resets_at // "" | sub("\\.[0-9]+"; "") | sub("\\+00:00$"; "Z")
+             | try fromdateiso8601 catch null);
+
+        # time until the session limit resets, e.g. "4h32m", "17m"
+        def countdown:
+            (reset_epoch) as $t
+            | if $t == null then "5h"
+              else ([$t - (now | floor), 0] | max) as $s
+                 | ($s / 3600 | floor) as $h | ($s % 3600 / 60 | floor) as $m
+                 | if $h > 0 then "\($h)h\($m)m" else "\($m)m" end
+              end;
+
         def blabel:
-              if .kind == "session"       then "5h"
+              if .kind == "session"       then countdown
             elif .kind == "weekly_all"    then "wk"
             elif .kind == "weekly_scoped" then (.scope.model.display_name // "wk*")
             else .kind end;

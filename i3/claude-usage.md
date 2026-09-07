@@ -2,9 +2,10 @@
 
 Shows three percentages, left of the normal i3status output:
 
-    5h 20%   wk 38%   Fable 54%
+    4h32m 20%   wk 38%   Fable 54%
 
-* `5h`    – current session (5-hour) usage
+* `4h32m` – current session (5-hour window) usage; the label is the time left
+            until that window resets, ticking down live
 * `wk`    – current week, all models
 * `Fable` – current week, Fable only (any model-scoped weekly limit is shown
             under its own name, so this adapts if the scoped model changes)
